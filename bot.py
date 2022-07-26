@@ -156,7 +156,7 @@ def main():
             await asyncio.sleep(60*60*24)
 
     client.loop.create_task(my_background_task())
-    client.run('MTAwMDk1NzU1MTM4ODY1OTg1Mg.Guv2nd.PXnnTuGEjrn21mqwtIumSQ5fWz_qf7SaJp7G24')
+    client.run('MTAwMDk1NzU1MTM4ODY1OTg1Mg.GsOJMq.EXZHEM6kxxHPEouwD1wkUkzKBXRcwy_nZZSlsY')
 
     #대기 시간 초과로 봇이 종료되었을 때 자동으로 재실행을 위함
     #import sys, os
