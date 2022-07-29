@@ -78,7 +78,8 @@ def main():
             await message.channel.send(message.channel, embed=embed)
             embed = discord.Embed(title="Dinner", description=dinner, color=0x00ff00)
             await message.channel.send(message.channel, embed=embed)
-            bad = ['ㅅㅂ','시발','씨발']
+           
+    bad = ['ㅅㅂ','시발','씨발']
 
     @client.event
     async def on_message(message):
