@@ -6,17 +6,7 @@ import pandas as pd
 def main():
     client = discord.Client()
     
-    bad = ['ㅅㅂ','시발','씨발']
-
-    async def on_message(message):
-
-        ##### remove bad words
-        message_contant=message.content
-        for i in bad:
-            if i in message_contant:
-                await message.channel.send('욕설 검지검지')
-                await message.delete()
-
+    
     #명령어 목록
     Command_list = (
                     "```css\n"
@@ -46,8 +36,7 @@ def main():
                     "ex. **선생님 성함"
                     "```"
                     )
-  
-
+   
    
     @client.event
     async def on_member_join(member):
@@ -89,6 +78,18 @@ def main():
             await message.channel.send(message.channel, embed=embed)
             embed = discord.Embed(title="Dinner", description=dinner, color=0x00ff00)
             await message.channel.send(message.channel, embed=embed)
+            bad = ['ㅅㅂ','시발','씨발']
+
+    @client.event
+    async def on_message(message):
+        message_contant=message.content
+        for i in bad:
+            if i in message_contant:
+                await message.channel.send('욕설 검지검지')
+                await message.delete()
+
+        if message.content.startswith('!도움말'):
+            await message.channel.send(Command_list)
 
     @client.event
     async def on_message(message):
