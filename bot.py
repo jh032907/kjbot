@@ -89,11 +89,7 @@ def main():
                 await message.channel.send('욕설 검지검지')
                 await message.delete()
 
-        if message.content.startswith('!도움말'):
-            await message.channel.send(Command_list)
-
-    @client.event
-    async def on_message(message):
+       
         if message.content.startswith('!도움말'):
             await message.channel.send(Command_list)
 
