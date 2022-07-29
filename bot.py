@@ -86,7 +86,7 @@ def main():
         message_contant=message.content
         for i in bad:
             if i in message_contant:
-                await message.channel.send('욕설 검지검지')
+                await message.channel.send('욕설감지 ')
                 await message.delete()
 
        
