@@ -36,17 +36,7 @@ def main():
                     )
 
 
-    @client.event
-    bad = ['ㅅㅂ','시발','씨발']
-
-    async def on_message(message):
-
-        ##### remove bad words
-        message_contant=message.content
-        for i in bad:
-            if i in message_contant:
-                await message.channel.send('욕설 검지검지')
-                await message.delete()
+   
     @client.event
     async def on_member_join(member):
         fmt = ' {1.name} 에 오신걸 환영합니다, {0.mention} 님'
