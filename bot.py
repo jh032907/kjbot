@@ -95,7 +95,8 @@ def main():
 
         elif message.content.startswith('!버전'):
             embed = discord.Embed(title="Bot Version", description="updated", color=0x00ff00)
-            embed.add_field(name="Version", value="0.1.0", inline=False)
+            embed.add_field(name="Version", value="0.2.0", inline=False)
+            await message.channel.send('욕설감지 기능 추가되었습니다 ')
             await message.channel.send(message.channel, embed=embed)
 
         elif message.content.startswith('!현재시간'):
