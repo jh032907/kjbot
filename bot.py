@@ -5,7 +5,17 @@ import pandas as pd
 
 def main():
     client = discord.Client()
-    bad = pd.read_excel("bad.xlsx")
+    
+    bad = ['ㅅㅂ','시발','씨발']
+
+    async def on_message(message):
+
+        ##### remove bad words
+        message_contant=message.content
+        for i in bad:
+            if i in message_contant:
+                await message.channel.send('욕설 검지검지')
+                await message.delete()
 
     #명령어 목록
     Command_list = (
@@ -36,10 +46,7 @@ def main():
                     "ex. **선생님 성함"
                     "```"
                     )
-    @client.event
-    if bad in message.content:
-    await message.delete()
-    await message.channel.send(f"{message.author.mention} 님이 비속어를 사용하였습니다.")
+  
 
    
     @client.event
