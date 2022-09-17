@@ -101,8 +101,8 @@ def main():
             await message.channel.send(message.channel, embed=embed)
 
         elif message.content.startswith('!현재시간'):
-            dt = datetime.datetime.now()
-            local_time = dt.strftime("%Y년 %m월 %d일 %H시 %M분 %S초") + datetime.timedelta(hours=9)
+            dt = datetime.datetime.now() + datetime.timedelta(hours=9)
+            local_time = dt.strftime("%Y년 %m월 %d일 %H시 %M분 %S초")
             embed = discord.Embed(title="Local Time", description=local_time, color=0x00ff00)
             await message.channel.send(message.channel, embed=embed)
 
@@ -114,8 +114,8 @@ def main():
             await print_get_meal(meal_date, whatday, message)
             
         elif message.content.startswith('!내일급식'):
-            f_dt = datetime.datetime.today() 
-            meal_date = f_dt.strftime("%Y.%m.%d") + datetime.timedelta(days=9)
+            f_dt = datetime.datetime.today() + datetime.timedelta(days=9)
+            meal_date = f_dt.strftime("%Y.%m.%d") 
             whatday = f_dt.weekday()
 
             await print_get_meal(meal_date, whatday, message)
