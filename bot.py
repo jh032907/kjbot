@@ -14,7 +14,8 @@ def main():
                     "!도움말 - 도움말\n"
                     "!버전 - 버전 정보\n"
                     "!현재시간 - 현재 시각\n"
-                    "!오늘급식 - 내일 급식\n"
+                    "!오늘급식 - 오늘 급식\n"
+                    "!내일급식 -  급식\n"
                     "!급식알려줘 - 급식 식단\n"
                     "!질문 - 무엇이든 물어보세요\n"
                     "```"
@@ -31,9 +32,9 @@ def main():
     chat_notice = (
                     "```css\n"
                     "[무엇이든 물어보세요.]\n"
-                    "ex. 수학실 위치\n"
-                    "ex. 1학년 교무실 위치\n"
-                    "ex. **선생님 성함"
+                    "ex. 컴퓨터실 어디야\n"
+                    "ex. 1학년 교무실 어디야\n"
+                    "ex. **선생님 성함이 "
                     "```"
                     )
    
@@ -95,8 +96,8 @@ def main():
 
         elif message.content.startswith('!버전'):
             embed = discord.Embed(title="Bot Version", description="updated", color=0x00ff00)
-            embed.add_field(name="Version", value="0.2.0", inline=False)
-            await message.channel.send('욕설감지 기능 추가되었습니다 ')
+            embed.add_field(name="Version", value="0.3.0", inline=False)
+            await message.channel.send('일부 오류 수정 ')
             await message.channel.send(message.channel, embed=embed)
 
         elif message.content.startswith('!현재시간'):
@@ -108,6 +109,13 @@ def main():
         elif message.content.startswith('!오늘급식'):
             f_dt = datetime.datetime.today() 
             meal_date = f_dt.strftime("%Y.%m.%d")
+            whatday = f_dt.weekday()
+
+            await print_get_meal(meal_date, whatday, message)
+            
+        elif message.content.startswith('!내일급식'):
+            f_dt = datetime.datetime.today() 
+            meal_date = f_dt.strftime("%Y.%m.%d") + datetime.timedelta(days=9)
             whatday = f_dt.weekday()
 
             await print_get_meal(meal_date, whatday, message)
