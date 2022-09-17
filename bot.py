@@ -101,12 +101,12 @@ def main():
 
         elif message.content.startswith('!현재시간'):
             dt = datetime.datetime.now()
-            local_time = dt.strftime("%Y년 %m월 %d일 %H시 %M분 %S초")
+            local_time = dt.strftime("%Y년 %m월 %d일 %H시 %M분 %S초") + datetime.timedelta(hours=9)
             embed = discord.Embed(title="Local Time", description=local_time, color=0x00ff00)
             await message.channel.send(message.channel, embed=embed)
 
         elif message.content.startswith('!오늘급식'):
-            f_dt = datetime.datetime.today() + datetime.timedelta(days=1)
+            f_dt = datetime.datetime.today() 
             meal_date = f_dt.strftime("%Y.%m.%d")
             whatday = f_dt.weekday()
 
