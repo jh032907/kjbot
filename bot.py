@@ -68,18 +68,18 @@ def main():
 
         if len(l_diet) == 1:
             embed = discord.Embed(title="No Meal", description="급식이 없습니다.", color=0x00ff00)
-            await message.channel.send(message.channel, embed=embed)
+            await message.channel.send(embed=embed)
         elif len(d_diet) == 1:
             lunch = local_date + " 중식\n" + l_diet
             embed = discord.Embed(title="Lunch", description=lunch, color=0x00ff00)
-            await message.channel.send(message.channel, embed=embed)
+            await message.channel.send(embed=embed)
         else:
             lunch = local_date + " 중식\n" + l_diet
             dinner = local_date + " 석식\n" + d_diet
             embed= discord.Embed(title="Lunch", description=lunch, color=0x00ff00)
             await message.channel.send(message.channel, embed=embed)
             embed = discord.Embed(title="Dinner", description=dinner, color=0x00ff00)
-            await message.channel.send(message.channel, embed=embed)
+            await message.channel.send( embed=embed)
            
     bad = ['ㅅㅂ','시발','야발','씨발','씨@발','시1발','씨1발','시@발','씨@발','썅','개새끼','개새기','새끼','좆까','ㅈ까','씹','병신','ㅄ','ㅂ@ㅅ','씨발련','썅련','ㄴㄱㅁ','느금','느금마','엿먹어']
 
@@ -99,13 +99,13 @@ def main():
             embed = discord.Embed(title="Bot Version", description="updated", color=0x00ff00)
             embed.add_field(name="Version", value="0.3.0", inline=False)
             await message.channel.send('일부 오류 수정 ')
-            await message.channel.send(message.channel, embed=embed)
+            await message.channel.send( embed=embed)
 
         elif message.content.startswith('!현재시간'):
             dt = datetime.datetime.now() + datetime.timedelta(hours=9)
             local_time = dt.strftime("%Y년 %m월 %d일 %H시 %M분 %S초")
             embed = discord.Embed(title="Local Time", description=local_time, color=0x00ff00)
-            await message.channel.send(message.channel, embed=embed)
+            await message.channel.send( embed=embed)
 
         elif message.content.startswith('!오늘급식'):
             f_dt = datetime.datetime.today() 
@@ -125,7 +125,7 @@ def main():
         elif message.content.startswith('!급식알려줘'):
             request = meal_notice + '\n' + '날짜를 보내주세요...'
             request_e = discord.Embed(title="Send to Me", description=request, color=0xcceeff)
-            await message.channel.send(message.channel, embed=request_e)
+            await message.channel.send( embed=request_e)
             def pred(m):
                 return m.author == message.author
             try:
@@ -149,7 +149,7 @@ def main():
                 whatday = eval(ss)
             except:
                 warnning = discord.Embed(title="Plz Retry", description='올바른 값으로 다시 시도하세요 : !급식알려줘', color=0xff0000)
-                await message.channel.send(message.channel, embed=warnning)
+                await message.channel.send( embed=warnning)
                 return
 
             await print_get_meal(meal_date, whatday, message)
@@ -157,7 +157,7 @@ def main():
         elif message.content.startswith('!질문'):
             request = chat_notice + '\n' + '질문을 입력하세요...'
             request_e = discord.Embed(title="Send to Me", description=request, color=0xcceeff)
-            await message.channel.send(message.channel, embed=request_e)
+            await message.channel.send( embed=request_e)
             def pred(m):
                 return m.author == message.author
             try:
