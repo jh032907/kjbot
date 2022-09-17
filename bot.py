@@ -109,13 +109,12 @@ def main():
         elif message.content.startswith('!오늘급식'):
             f_dt = datetime.datetime.today() 
             meal_date = f_dt.strftime("%Y.%m.%d")
-            print(meal_date)
             whatday = f_dt.weekday()
 
             await print_get_meal(meal_date, whatday, message)
             
         elif message.content.startswith('!내일급식'):
-            f_dt = datetime.datetime.today() + datetime.timedelta(days=9)
+            f_dt = datetime.datetime.today() + datetime.timedelta(days=1)
             meal_date = f_dt.strftime("%Y.%m.%d") 
             print(meal_date)
             whatday = f_dt.weekday()
